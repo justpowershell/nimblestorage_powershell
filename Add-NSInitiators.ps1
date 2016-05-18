@@ -1,3 +1,28 @@
+<#
+   .SYNOPSIS
+    Add-NSInitiators.ps1
+
+   .DESCRIPTION
+    The script scans your vCenter ESXi hosts and compares determines if the WWPN's exist in similar named Nimble Initiator groups.
+    If the IG or the WWPN does not exist, the script will create them using Nimble's RESTful API.
+
+   .EXAMPLE
+    Example-
+    Example- Add-NSInitiators.ps1
+
+   .NOTES
+    Name            : Add-NSInitiators.ps1
+    Author          : Paul Sabin @justpaul
+    Lastedit        : 05/18/2016
+
+   .INPUTS
+    vCenter name and credentials
+    Nimble storage name and credentials
+
+   .LINK
+    https://github.com/justpowershell/nimblestorage_powershell/blob/master/Add-NSInitiators.ps1
+#>
+
 $nimblearray = read-host "Enter Nimble array DNS name"
 $nimblecred = Get-Credential -Message "Enter credentials for Nimble Array" -UserName "admin"
 $vcenter = read-host "Enter vCenter server name"
