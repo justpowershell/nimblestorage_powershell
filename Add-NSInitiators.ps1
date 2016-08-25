@@ -75,7 +75,7 @@ function get-nimbleinitiatorgroups {
 function format-wwpn {
     param([string]$wwpn)
     ForEach ($position in 14,12,10,8,6,4,2) {$wwpn = $wwpn.Insert($position,":")}
-    return $wwpn
+    return ($wwpn).ToUpper() # fixes a known bug in Nimble REST API Pre-3.4
 }
 
 function update-nimbleigs {
