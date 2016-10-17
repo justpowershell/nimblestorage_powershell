@@ -110,7 +110,7 @@ function remove-nssnapshot {
         [Parameter(Mandatory=$False,
         ValueFromPipeLine=$True,  
         ValueFromPipeLineByPropertyName=$True)]
-        [string]$name="Unknown"
+        [string]$name=$id
     )
     begin {
         Write-Verbose "$(get-date) starting remove-nssnapshot"
