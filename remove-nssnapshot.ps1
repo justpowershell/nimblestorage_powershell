@@ -23,7 +23,7 @@
     
    
    .NOTES
-    Name            : remove-nssnapshots.ps1
+    Name            : remove-nssnapshot.ps1
     Author          : Paul Sabin
     Lastedit        : 10/17/2016 11:03:01
 
