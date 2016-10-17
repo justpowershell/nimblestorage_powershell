@@ -15,14 +15,11 @@
     #Show all snapshots older than 7 days that would be removed without the -whatif parameter
     get-nsvol | foreach { $_ | get-nssnapshot | where {$_.creation_time -lt (convertto-epoch ((Get-Date).AddDays(-7)))} | remove-nssnapshot -whatif }
 
-    #Remove all snapshots in a volume without a prompt, careful here.
-    get-nsvol MyVol | get-nssnapshot | remove-nssnapshot -confirm:$false
+    #Remove all snapshots in a volume
+    get-nsvol MyVol | get-nssnapshot | remove-nssnapshot
 
-    #Remove all snapshots in a volume without a prompt, careful here.
-    get-nsvol MyVol | get-nssnapshot | remove-nssnapshot -confirm:$false
-
-    #Remove any snapshots in a volume with 'manual' in the description with vervose results
-    get-nsvol MyVol | get-nssnapshot | where {$_.description -like "*manual*"} | remove-nssnapshot -verbose
+    #Remove any snapshots in a volume with 'manual' without a prompt, careful here.
+    get-nsvol MyVol | get-nssnapshot | where {$_.description -like "*manual*"} | remove-nssnapshot -confirm:$false
     
    
    .NOTES
