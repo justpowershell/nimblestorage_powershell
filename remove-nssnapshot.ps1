@@ -37,25 +37,23 @@
     none
 
    .LINK
-    https://github.com/justpowershell/nimblestorage_powershell/blob/master/remove-nssnapshot.ps1
+    https://devgit01.bakerbotts.net/it_oi/powershell_scripts
 #>
 
-#Requires -Version 2.0 
+#Requires -Version 4.0 
 
 $nsarray = Read-Host "Enter DNS Name for array"  # Replace with your array name
 
 $nscreds = Get-Credential # See http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx on how to store credentials in script.
-$nsuser = $nscreds.UserName
-$nspass = $nscreds.GetNetworkCredential().Password
 
 function get-token {
 
-    $username = $nsuser
-    $password = $nspass
+    $nsuser = $nscreds.UserName
+    $nspass = $nscreds.GetNetworkCredential().Password
 
     $data = @{
-        username = $username
-	    password = $password
+        username = $nsuser
+	    password = $nspass
     }
 
     $body = convertto-json (@{ data = $data })
