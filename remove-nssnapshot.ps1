@@ -37,7 +37,7 @@
     none
 
    .LINK
-    https://devgit01.bakerbotts.net/it_oi/powershell_scripts
+    https://github.com/justpowershell/nimblestorage_powershell/blob/master/remove-nssnapshot.ps1
 #>
 
 #Requires -Version 2.0 
