@@ -10,7 +10,7 @@
 
    .EXAMPLE
     #Remove all snapshots not created from the volume's current volume collection, possibly indicating an orphaned snapshot.
-    get-nsvol | foreach { $_ | get-nssnapshot | where {$_.snap_collection_name -notlike "$($nsvol.volcoll_name)*"} | remove-nssnapshot }
+    get-nsvol | foreach { $nsvol = $_ ; $_ | get-nssnapshot | where {$_.snap_collection_name -notlike "$($nsvol.volcoll_name)*"} | remove-nssnapshot }
 
     #Show all snapshots older than 7 days that would be removed without the -whatif parameter
     get-nsvol | foreach { $_ | get-nssnapshot | where {$_.creation_time -lt (convertto-epoch ((Get-Date).AddDays(-7)))} | remove-nssnapshot -whatif }
